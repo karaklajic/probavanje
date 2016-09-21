@@ -1,0 +1,109 @@
+/* CSS Document */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, font, img,
+ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+center, u, b, i {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     outline: 0;
+     font-weight: normal;
+     font-style: normal;
+     font-size: 100%;
+     font-family: inherit;
+     vertical-align: baseline;
+}
+
+div.container {
+	padding: 0px;
+	margin: 0px;
+	width: 1024px;
+	margin: auto; /* the auto margins (in conjunction with a width) center the page 
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	height:100%;
+	border: 1px solid #aaa;
+}
+
+.cabecera {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #ccc;
+	text-align: center;
+	padding: 0px;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+
+.labeladmin {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #777;
+	float:left;
+	text-align:left;
+	width:150px;
+	margin:5px 0px 0px;
+	padding:0px;
+}
+
+select{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-size: 10px;
+	width:115px;
+	margin:2px 5px 0px;
+	padding:0px;
+	border: 1px solid #ccc;
+	color: #174773;
+	background-color:#FFFFFF;
+	height:17px;
+	float:left;
+}
+
+select:hover {
+	border: 1px solid #ccc;
+	background-color:#d5e4f0;
+	color: #222;
+}
+
+select:focus {
+	border: 1px solid #ccc;
+	background-color:#d5e4f0;
+	color: #174773;
+}
+
+input {
+	font-family: verdana;
+	font-size: 10px;
+	background-color:#FFFFFF;
+	color: #174773;
+	border: 1px solid #ccc;
+	width:113px;
+	margin:2px 0px 0px;
+	padding:0px;
+	height:14px;
+}
+
+input:hover {
+	border: 1px solid #ccc;
+	background-color:#d5e4f0;
+	color: #174773;
+}
+
+div.imagen {
+	margin-bottom:10px;
+	background-color:#777;
+}
+.hidden {
+	visibility: hidden;
+}
+xxx {
+	text-align: center;
+}

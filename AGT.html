@@ -1,0 +1,167 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+
+<title>Kuhinje Kucevic</title>
+<link rel="stylesheet" href="AGT.css" type="text/css" media="screen" />
+<script type="text/javascript">
+
+var ImgResult = new Array();
+var selectedArray = new Array();
+var currobj=0;
+var currmat=0;
+
+function change_object(){
+    
+    currobj = document.states.object.selectedIndex;
+    currmat = selectedArray[currobj];
+    
+    
+    document.states.material.length=matIDArray[currobj].length
+    for (i=0;i<(matIDArray[currobj].length);i++)
+      { 
+        document.states.material.options[i].value = matIDArray[currobj][i];
+        document.states.material.options[i].text = matNamesArray[currobj][i];
+      }
+    document.states.material.selectedIndex=currmat;
+       
+    ImgResult[currobj] = objIDArray[currobj]+matIDArray[currobj][currmat];   
+    document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+    document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+}
+
+function change_material(){
+    
+    currobj = document.states.object.selectedIndex;
+    currmat = document.states.material.selectedIndex;
+   
+    ImgResult[currobj] = objIDArray[currobj]+matIDArray[currobj][currmat];   
+    document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+    document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+    selectedArray[currobj]=currmat;
+} 
+
+function imagedata_init (mt1, mt2) {
+  for (i=0;i<objIDArray.length;i++){
+  mt1[i] = objIDArray[i]+matIDArray[i][0];
+  mt2[i] = 0; 
+}
+}
+
+function centrado (foto)
+{
+var width = foto.width;
+//alert ('The image size is '+width);
+document.getElementById('centrator').style.width = width;
+}
+
+var prefix="AGT";
+var suffix=".jpg";
+
+var currobj="0";
+var objIDArray = new Array();
+var objNamesArray = new Array();
+var matIDArray = new Array();
+var matNamesArray = new Array();
+
+matIDArray[0]=new Array();
+matNamesArray[0] = new Array();
+objIDArray[0]="1";
+objNamesArray[0]="FRONTOVI";
+matIDArray[0][0]="B";
+matNamesArray[0][0]="L002";
+matIDArray[0][1]="C";
+matNamesArray[0][1]="L003";
+matIDArray[0][2]="D";
+matNamesArray[0][2]="L004";
+matIDArray[0][3]="E";
+matNamesArray[0][3]="L006";
+
+matIDArray[1]=new Array();
+matNamesArray[1] = new Array();
+objIDArray[1]="2";
+objNamesArray[1]="RP+DUPLE+SOKLA";
+matIDArray[1][0]="B";
+matNamesArray[1][0]="L002";
+matIDArray[1][1]="C";
+matNamesArray[1][1]="L003";
+matIDArray[1][2]="D";
+matNamesArray[1][2]="L004";
+matIDArray[1][3]="E";
+matNamesArray[1][3]="L006";
+
+matIDArray[2]=new Array();
+matNamesArray[2] = new Array();
+objIDArray[2]="3";
+objNamesArray[2]="PRINT";
+matIDArray[2][0]="B";
+matNamesArray[2][0]="FP 33";
+matIDArray[2][1]="C";
+matNamesArray[2][1]="FP 34";
+matIDArray[2][2]="D";
+matNamesArray[2][2]="FP 80";
+matIDArray[2][3]="E";
+matNamesArray[2][3]="FP 85";
+matIDArray[2][4]="F";
+matNamesArray[2][4]="FP 120";
+
+
+</script>
+</head>
+<body>
+<div id="centrator" class="container" style="margin-top:5px; border-width:0px; width:600px;">
+<p class="cabecera">Kuhinje Kucevic</p>
+<form ENCTYPE="multipart/form-data" action="" name="states">
+  <table width="600" border="1">
+    <tr>
+      <td width="292"><span class="labeladmin">Odaberi Grupu:</span>
+        <SELECT NAME="object" onChange="change_object()">
+          <script type="text/javascript">
+ 
+for (i=0;i<objIDArray.length;i++)
+  { 
+  document.write("<OPTION value=\"");
+  document.write(objIDArray[i]);
+  document.write("\">");
+  document.write(objNamesArray[i]);
+  document.write("</OPTION>");
+  }
+        </script>
+        </SELECT></td>
+      <td width="292"><label class="labeladmin">Promeni Materijal:&nbsp;</label>
+        <SELECT NAME="material" onChange="change_material()">
+          <script type="text/javascript">
+
+for (i=0;i<matIDArray[0].length;i++)
+  { 
+  document.write("<OPTION value=\"");
+  document.write(matIDArray[0][i]);
+  document.write("\">");
+  document.write(matNamesArray[0][i]);
+  document.write("</OPTION>");
+  }
+
+        </script>
+        </SELECT></td>
+    </tr>
+  </table>
+  <input name="imageName" type="text" class="hidden" value="image">
+<div class="imagen">
+	<img id="imagen" name="imagen" src="<script>document.write(prefix+ImgResult.join('')+suffix);</script>" onload="centrado(this)"/>
+</div>
+</form>
+
+<script> 
+imagedata_init(ImgResult, selectedArray);
+document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+document.states.object.selectedIndex=0;
+document.states.material.selectedIndex=0;
+document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+
+
+</script> 
+</div>
+
+</body>
+
+</html>
